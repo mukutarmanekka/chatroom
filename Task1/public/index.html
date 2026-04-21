@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Local Web Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <header>
+            <h1>Local Web Chat</h1>
+            <div id="status-banner" class="status-banner hidden">
+                Bot Mode Active 🤖
+            </div>
+        </header>
+
+        <div id="messages" class="messages">
+            <div class="message system">
+                <div class="content">Welcome to the local chatroom. Type /bot to activate Bot Mode. Type /human to deactivate it.</div>
+            </div>
+        </div>
+
+        <div id="bot-overlay" class="bot-overlay hidden">
+            <span>Read Only Mode - Another user activated the Bot.</span>
+        </div>
+
+        <form id="chat-form" class="chat-form">
+            <input type="text" id="username-input" class="username-input" placeholder="Name" value="Guest" required>
+            <label for="image-input" class="image-btn" id="image-btn-label" title="Attach Image">📎</label>
+            <input type="file" id="image-input" accept="image/*" style="display: none;">
+            <input type="text" id="message-input" class="message-input" placeholder="Type a message..." autocomplete="off">
+            <button type="submit" class="send-btn">Send</button>
+        </form>
+    </div>
+
+    <!-- Socket.io library and Script -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
